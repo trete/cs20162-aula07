@@ -25,7 +25,7 @@ public abstract class Calendario {
     private static final int RESTO_DE_BISSEXTO_POR_QUATRO = 0;
     private static final int CHECA_BISSEXTO = 4;
     private static final int VALIDO = 1;
-    private static final int VIRA_MES_DECRESCENTE = VALIDO;
+    private static final int VIRA_MES_DECRESCENTE = 1;
     private static final int ERRO = -1;
     /**
       *método que verifica a validade de uma data
