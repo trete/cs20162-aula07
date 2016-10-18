@@ -39,7 +39,7 @@ public abstract class Calendario {
         int ano = data / DIGITOS_ANOS;
         switch(mes){
             //casos de dia do mês da data desconhecida inválidos
-            case VALIDO:
+            case 1:
                 if(dia > MES_DE_TRINTA_E_UM_DIAS){
                     return ERRO;
                 }
@@ -58,7 +58,7 @@ public abstract class Calendario {
                 if (dia > MES_DE_TRINTA_E_UM_DIAS) {
                     return ERRO;
                 }
-            case CHECA_BISSEXTO:
+            case 4:
                 if (dia > MES_DE_TRINTA_DIAS) {
                     return ERRO;
                 }
@@ -187,7 +187,7 @@ public abstract class Calendario {
                 int anoContador = (contador) / DIGITOS_ANOS;
                
                 switch(mesContador){
-                    case VIRA_MES_DECRESCENTE:
+                    case 1:
                         if (diaContador <= VIRA_MES_DECRESCENTE) {
                             contador -= VIRA_ANO;
                         }
@@ -219,7 +219,7 @@ public abstract class Calendario {
                             contador -= VIRA_MES_TRINTA_DIAS;
                         }
                         break;
-                    case DOMINGO:
+                    case 6:
                         if (diaContador <= VIRA_MES_DECRESCENTE) {
                             contador -= VIRA_MES_TRINTA_E_UM_DIAS;
                         }
@@ -249,7 +249,7 @@ public abstract class Calendario {
                             contador -= VIRA_MES_TRINTA_E_UM_DIAS;
                         }
                         break;
-                    case QNT_MESES:
+                    case 12:
                         if (diaContador <= VIRA_MES_DECRESCENTE) {
                             contador -= VIRA_MES_TRINTA_DIAS;
                         }
@@ -288,7 +288,7 @@ public abstract class Calendario {
                 int anoContador = (contador) / DIGITOS_ANOS;
                
                 switch(mesContador){
-                    case VIRA_MES_DECRESCENTE:
+                    case 1:
                         if (diaContador >= MES_DE_TRINTA_E_UM_DIAS) {
                             contador += VIRA_MES_TRINTA_E_UM_DIAS;
                         }
@@ -308,7 +308,7 @@ public abstract class Calendario {
                             contador += VIRA_MES_TRINTA_E_UM_DIAS;
                         }
                         break;
-                    case CHECA_BISSEXTO:
+                    case 4:
                         if (diaContador >= MES_DE_TRINTA_DIAS) {
                             contador += VIRA_MES_TRINTA_DIAS;
                         }
@@ -318,7 +318,7 @@ public abstract class Calendario {
                             contador += VIRA_MES_TRINTA_E_UM_DIAS;
                         }
                         break;
-                    case DOMINGO:
+                    case 6:
                         if (diaContador >= MES_DE_TRINTA_DIAS) {
                             contador += VIRA_MES_TRINTA_DIAS;
                         }
@@ -348,7 +348,7 @@ public abstract class Calendario {
                             contador += VIRA_MES_TRINTA_DIAS;
                         }
                         break;
-                    case QNT_MESES:
+                    case 12:
                         if (diaContador >= MES_DE_TRINTA_E_UM_DIAS) {
                             contador += VIRA_ANO;
                         }
