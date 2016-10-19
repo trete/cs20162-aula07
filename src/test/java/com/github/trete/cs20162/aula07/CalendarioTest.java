@@ -1,6 +1,7 @@
 
 package com.github.trete.cs20162.aula07;
 
+import javax.management.RuntimeErrorException;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -453,5 +454,20 @@ public class CalendarioTest {
     @Test
     public void valoresDeTesteRuins62(){
         assertEquals(-1, Calendario.diaSemana(20161220, 2015, 20160240, 6));
+    }
+    
+    @Test (expected = RuntimeException.class)
+    public void testeLocaldate1(){
+        Calendario.diaSemanaLocalDate(201601018, 0, 0, 0);
+    }
+    
+    @Test (expected = RuntimeException.class)
+    public void testeLocaldate2(){
+        Calendario.diaSemanaLocalDate(2011018, 0, 0, 0);
+    }
+    
+    @Test
+    public void testeLocaldate3(){
+        Calendario.diaSemanaLocalDate(20161018, 0, 0, 0);
     }
 }

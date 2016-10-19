@@ -1,6 +1,8 @@
 
 package com.github.trete.cs20162.aula07;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Rafael Borges Calil
@@ -148,7 +150,7 @@ public abstract class Calendario {
     private static final int DATA_VALIDA = 1;
     /**
      * valor ao qual o dia do mês deve se igualar para que o valor do mês seja
-     * reduzido em 1 no método diaSemanaDataMenor.
+ reduzido em 1 no método diaSemanaAuxDataMenor.
      */
     private static final int VIRA_MES_DECRESCENTE = 1;
     /**
@@ -278,10 +280,10 @@ public abstract class Calendario {
             return ERRO;
         }
         if (data < dataConhecida) {
-            return diaSemanaDataMenor(
+            return diaSemanaAuxDataMenor(
                 data, bissexto, dataConhecida, diaConhecido);
         } else {
-            return diaSemanaDataMaior(
+            return diaSemanaAuxDataMaior(
                 data, bissexto, dataConhecida, diaConhecido);
         }
     }
@@ -300,9 +302,12 @@ public abstract class Calendario {
      * representada pelo parâmetro "data" (0 significa segunda feira, 1
      * significa terça feira, e assim por diante até domingo, que é representado
      * por 6).
+     * @throws RuntimeException se a data for maior ou igual à dataConhecida.
      */
-    protected static int diaSemanaDataMenor(final int data, final int bissexto,
-            final int dataConhecida, final int diaConhecido) {
+    protected static int diaSemanaAuxDataMenor(final int data,
+            final int bissexto, final int dataConhecida,
+            final int diaConhecido)
+            throws RuntimeException {
         if (data >= dataConhecida) {
             throw new RuntimeException("a data deve ser menor que a"
                     + " dataConhecida");
@@ -406,8 +411,8 @@ public abstract class Calendario {
      * por 6).
      * @throws RuntimeException se a data for menor que a dataConhecida
      */
-    protected static int diaSemanaDataMaior(final int data, final int bissexto,
-            final int dataConhecida, final int diaConhecido)
+    protected static int diaSemanaAuxDataMaior(final int data,
+            final int bissexto, final int dataConhecida, final int diaConhecido)
             throws RuntimeException {
         if (data < dataConhecida) {
             throw new RuntimeException("a data deve ser maior ou igual a"
@@ -493,5 +498,41 @@ public abstract class Calendario {
                 }
             }
         return diaDesejado;
+    }
+    /**
+      *Método que retorna o dia da semana de uma data baseado na biblioteca
+      * java.time.LocalDate.
+     * @param data inteiro de 8 digitos que representa a data da qual se quer
+     * descobrir o dia da semana, no formato aaaammdd.
+     * @param bissexto numero que o programa toma como ano bissexto conhecido.
+     * Não tem uma função real nesse método, é um parâmetro apenas  por
+     * exigencia do exercicio.
+     * @param dataConhecida inteiro de 8 digitos que representa uma data da qual
+     * se sabe o dia da semana, no formato aaaammdd.Não tem uma função real
+     * nesse método, é um parâmetro apenas  por exigencia do exercicio.
+     * @param diaConhecido dia da semana da data conhecida, 0 vale segunda
+     * feira, 1 vale terça feira, e assim por diante até domingo(6).Não tem uma
+     * função real nesse método, é um parâmetro apenas  por exigencia do
+     * exercicio.
+     * @return o valor inteiro correspondente ao dia da semana da data
+     * representada pelo parâmetro "data" (0 significa segunda feira, 1
+     * significa terça feira, e assim por diante até domingo, que é representado
+     * por 6. -1 é retornado em caso de erro).
+     * @throws RuntimeException se data for menor que 10000000 ou maior
+     * que 99999999.
+     */
+    public static int diaSemanaLocalDate(final int data, final int bissexto,
+            final int dataConhecida, final int diaConhecido)
+            throws RuntimeException {
+        if (data < DATA_MINIMA || data > LIMIAR_ACEITACAO) {
+            throw new RuntimeException("as datas devem ser inteiros"
+                    + " de 8 dígitos");
+        }
+        int diaData = data % DIGITOS_DIAS;
+        int mesData = (data % DIGITOS_ANOS) / DIGITOS_DIAS;
+        int anoData = data / DIGITOS_ANOS;
+        LocalDate dataLocalDate = LocalDate.of(anoData, mesData,
+                diaData);
+        return dataLocalDate.getDayOfWeek().ordinal();
     }
 }
