@@ -4,7 +4,7 @@ package com.github.trete.cs20162.aula07;
 import java.time.LocalDate;
 
 /**
- *Implementação de cálculo do dia da semana
+ *Implementação de cálculo do dia da semana.
  */
 public abstract class Calendario {
     /**
