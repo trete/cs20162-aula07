@@ -256,7 +256,7 @@ public abstract class Calendario {
                     + " de 8 dígitos");
         }
         if (bissexto < RESTO_DE_BISSEXTO_POR_QUATRO
-                || diaConhecido < RESTO_DE_BISSEXTO_POR_QUATRO
+                || diaConhecido < SEGUNDA
                 || diaConhecido > DOMINGO) {
             return ERRO;
         }
