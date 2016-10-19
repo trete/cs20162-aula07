@@ -12,7 +12,7 @@ public abstract class Calendario {
      * valor que representa o mês de janeiro.
      */
     public static final int JANEIRO = 1;
-        /**
+    /**
      * valor que representa o mês de fevereiro.
      */
     public static final int FEVEREIRO = 2;
