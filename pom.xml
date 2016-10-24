@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- mvn javadoc:javadoc
-         Gera documentação do projeto
+         Gera documentaÃ§Ã£o do projeto
 
          mvn package -P cobertura
-         Compila, executa testes e elabora relatório de cobertura.
+         Compila, executa testes e elabora relatÃ³rio de cobertura.
 
          mvn exec:java -Dexec.mainClass="com.github.kyriosdata.exemplo.ProgramaCalendario"
          Executa o programa exemplo
@@ -22,13 +22,13 @@
     <name>com.github.kyriosdata:exemplo</name>
 
     <description>
-        Projeto de referência (exemplo) inicial de desenvolvimento em Java com uso de JUnit.
+        Projeto de referÃªncia (exemplo) inicial de desenvolvimento em Java com uso de JUnit.
     </description>
 
     <url>https://github.com/kyriosdata/exemplo</url>
 
     <organization>
-        <name>Instituto de Informática (UFG) - Fábrica de Software</name>
+        <name>Instituto de InformÃ¡tica (UFG) - FÃ¡brica de Software</name>
         <url>http://www.inf.ufg.br</url>
     </organization>
 
@@ -37,8 +37,8 @@
     <licenses>
         <license>
             <name>Creative Commons Attribution 4.0 International (CC BY 4.0)</name>
-            <comments>A atribuição deve conter, explicitamente, a seguinte linha:
-                Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
+            <comments>A atribuiÃ§Ã£o deve conter, explicitamente, a seguinte linha:
+                Copyright (c) 2016. FÃ¡brica de Software - Instituto de InformÃ¡tica (UFG)
             </comments>
             <url>https://creativecommons.org/licenses/by/4.0/</url>
         </license>
@@ -47,9 +47,9 @@
     <developers>
         <developer>
             <id>kyriosdata</id>
-            <name>Fábio Nogueira de Lucena</name>
+            <name>FÃ¡bio Nogueira de Lucena</name>
             <email>fabio@inf.ufg.br</email>
-            <organization>Instituto de Informática (UFG)</organization>
+            <organization>Instituto de InformÃ¡tica (UFG)</organization>
             <organizationUrl>http://www.inf.ufg.br</organizationUrl>
         </developer>
     </developers>
@@ -81,6 +81,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.kyriosdata.saep</groupId>
+            <artifactId>saep-dominio</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -97,7 +102,7 @@
 
     </dependencies>
 
-    <!-- mvn site (gera relatório em Project Report -->
+    <!-- mvn site (gera relatÃ³rio em Project Report -->
     <reporting>
         <plugins>
             <plugin>
